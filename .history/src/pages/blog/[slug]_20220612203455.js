@@ -14,7 +14,7 @@ const SingleBlog = ({frontmatter, markdownBody}) => {
         <div className={style.container}>
           <h1>{title}</h1>
           <p>{date}</p>
-          <ReactMarkdown>{markdownBody}</ReactMarkdown>
+          <ReactMarkdown>{props.markdownBody}</ReactMarkdown>
         </div>
       </div>
     </Layout>

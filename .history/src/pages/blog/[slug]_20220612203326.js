@@ -3,18 +3,22 @@ import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 import Layout from "../../components/layout";
 import * as style from "../../styles/index.module.scss";
-const SingleBlog = ({frontmatter, markdownBody}) => {
-  const {title, date, image} = frontmatter;
+const SingleBlog = ({frontmatter, markdownbody}) => {
   return (
     <Layout>
       <div className={style.hero}>
-        <Image src={image} alt="blog-image" height="500" width="1000" />
+        <Image
+          src={props.frontmatter.image}
+          alt="blog-image"
+          height="500"
+          width="1000"
+        />
       </div>
       <div className={style.wrapper}>
         <div className={style.container}>
-          <h1>{title}</h1>
-          <p>{date}</p>
-          <ReactMarkdown>{markdownBody}</ReactMarkdown>
+          <h1>{props.frontmatter.title}</h1>
+          <p>{props.frontmatter.date}</p>
+          <ReactMarkdown>{props.markdownBody}</ReactMarkdown>
         </div>
       </div>
     </Layout>

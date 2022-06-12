@@ -8,13 +8,18 @@ const SingleBlog = ({frontmatter, markdownBody}) => {
   return (
     <Layout>
       <div className={style.hero}>
-        <Image src={image} alt="blog-image" height="500" width="1000" />
+        <Image
+          src={image}
+          alt="blog-image"
+          height="500"
+          width="1000"
+        />
       </div>
       <div className={style.wrapper}>
         <div className={style.container}>
-          <h1>{title}</h1>
-          <p>{date}</p>
-          <ReactMarkdown>{markdownBody}</ReactMarkdown>
+          <h1>{props.frontmatter.title}</h1>
+          <p>{props.frontmatter.date}</p>
+          <ReactMarkdown>{props.markdownBody}</ReactMarkdown>
         </div>
       </div>
     </Layout>
