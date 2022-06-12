@@ -8,10 +8,10 @@ const Footer = () => {
         <a href="https://github.com/isopets/">
           <img src="/images/github.svg" alt="logo" />
         </a>
-        <a href="https://www.linkedin.com/in/雄人-磯貝-593087207/">
+        <a href="https://www.google.com/">
           <img src="/images/linkedin.svg" alt="logo" />
         </a>
-        <a href="https://twitter.com/isopet_engineer">
+        <a href="https://www.google.com/">
           <img src="/images/twitter.svg" alt="logo" />
         </a>
         <a href="https://www.google.com/">

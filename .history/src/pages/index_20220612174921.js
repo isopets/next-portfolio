@@ -14,7 +14,7 @@ const Index = () => {
           quality={90}
         />
         <div className={style.textContainer}>
-          <h1>I'm Yuto Isogai!</h1>
+          <h1>I'm Abe Hiroki!</h1>
           <h3>JavaScript Developer</h3>
         </div>
       </div>

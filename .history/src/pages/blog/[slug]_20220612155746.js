@@ -6,7 +6,7 @@ import * as style from "../styles/index.module.scss";
 const SingleBlog = props => {
   return (
     <Layout>
-      <div className={style.hero}>
+      <div>
         <Image
           src={props.frontmatter.image}
           alt="blog-image"
@@ -14,8 +14,8 @@ const SingleBlog = props => {
           width="1000"
         />
       </div>
-      <div className={style.wrapper}>
-        <div className={style.container}>
+      <div>
+        <div>
           <h1>{props.frontmatter.title}</h1>
           <p>{props.frontmatter.date}</p>
           <ReactMarkdown>{props.markdownBody}</ReactMarkdown>
@@ -36,20 +36,16 @@ export async function getStaticPaths() {
     });
     return data;
   })(require.context("../../data", true, /\.md$/));
-
   const paths = blogSlugs.map(blogSlug => `/blog/${blogSlug}`);
-
   return {
     paths: paths,
     fallback: false,
   };
 }
-
 export async function getStaticProps(context) {
   const {slug} = context.params;
   const data = await import(`../../data/${slug}.md`);
   const singleDocument = matter(data.default);
-
   return {
     props: {
       frontmatter: singleDocument.data,

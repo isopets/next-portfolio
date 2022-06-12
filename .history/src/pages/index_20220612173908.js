@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Layout from "../components/layout";
-import * as style from "../styles/index.module.scss";
+import * as style from "../styles/index.module.scss"
 const Index = () => {
   return (
     <Layout>
@@ -15,11 +15,11 @@ const Index = () => {
         />
         <div className={style.textContainer}>
           <h1>I'm Yuto Isogai!</h1>
-          <h3>JavaScript Developer</h3>
+          <h3>Engineer</h3>
         </div>
       </div>
-      <div className={style.container}>
-        <div className={style.profile}>
+      <div>
+        <div>
           <div>
             <h2>JavaScript Nerd</h2>
             <p>
@@ -43,9 +43,9 @@ const Index = () => {
             quality={90}
           />
         </div>
-        <div className={style.skills}>
+        <div>
           <h2>Skills</h2>
-          <div className={style.skillsContainer}>
+          <div>
             <div>
               <img src="/images/javascript.svg" alt="javascript" />
               <span>JavaScript / 10 years</span>
@@ -64,7 +64,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-        <div className={style.ctaButton}>
+        <div>
           <Link href="/contact">
             <a>Make It Happen!</a>
           </Link>
