@@ -1,8 +1,8 @@
 import Image from "next/image";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
-import Layout from "../../components/layout";
-import * as style from "../../styles/index.module.scss";
+import Layout from "<div className=""></div>/../components/layout";
+import * as style from "../styles/index.module.scss";
 const SingleBlog = props => {
   return (
     <Layout>

@@ -6,14 +6,10 @@ const nextConfig = {
             test: /\.md$/,
             use: "raw-loader",
         });
-
+        const withImages = require（ 'next-images'）
+        module.exports = withImages（）
         return config;
     },
 };
-// module.exports = {
-//     future: {
-//         webpack5: true,
-//     },
-// };
 
 module.exports = nextConfig;

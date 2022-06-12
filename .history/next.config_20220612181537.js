@@ -10,10 +10,8 @@ const nextConfig = {
         return config;
     },
 };
-// module.exports = {
-//     future: {
-//         webpack5: true,
-//     },
-// };
-
+"rules": {
+    // Other rules
+    "@next/next/no-img-element": "off"
+}
 module.exports = nextConfig;

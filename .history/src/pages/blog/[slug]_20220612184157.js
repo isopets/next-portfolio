@@ -56,4 +56,4 @@ export async function getStaticProps(context) {
       markdownBody: singleDocument.content,
     },
   };
-}
+

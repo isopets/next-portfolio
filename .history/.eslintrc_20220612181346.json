@@ -1,0 +1,5 @@
+{
+  "extends": "next/core-web-vitals"
+  const withImages = require（'next-images'）
+module.exports = withImages（）
+}
