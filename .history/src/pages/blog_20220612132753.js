@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "next/link"; // 追加
 import matter from "gray-matter";
 
 const Blog = props => {
@@ -12,7 +12,8 @@ const Blog = props => {
           <p>{blog.frontmatter.date}</p>
           <Link href={`/blog/${blog.slug}`}>
             <a>Read More</a>
-          </Link>
+          </Link>{" "}
+          // 追加
         </div>
       ))}
     </div>
@@ -34,12 +35,9 @@ export async function getStaticProps() {
     });
     return data;
   })(require.context("../data", true, /\.md$/));
-  const orderedBlogs = blogs.sort((a, b) => {
-    return b.frontmatter.id - a.frontmatter.id;
-  });
   return {
     props: {
-      blogs: JSON.parse(JSON.stringify(orderedBlogs)),
+      blog: blogs,
     },
   };
 }
