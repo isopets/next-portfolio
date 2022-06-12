@@ -1,18 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import Layout from "../components/layout";
-import * as style from "../styles/index.module.scss"
+import Layout from "../components/layout" 
 const Index = () => {
   return (
-    <Layout>
+    <>
       <div>
-        <Image
-          src="/images/index-hero.jpg"
-          alt="hero"
-          layout="fill"
-          objectFit="cover"
-          quality={90}
-        />
+      <Image src="/images/index-hero.jpg" alt="hero" layout="fill" objectFit="cover" quality={90} />
         <div>
           <h1>I'm Abe Hiroki!</h1>
           <h3>JavaScript Developer</h3>
@@ -70,7 +63,7 @@ const Index = () => {
           </Link>
         </div>
       </div>
-    </Layout>
+    </>
   );
 };
 

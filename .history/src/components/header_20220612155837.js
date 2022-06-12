@@ -1,0 +1,46 @@
+import Link from "next/link";
+import Image from "next/image";
+import * as style from "../styles/index.module.scss"
+
+const Header = () => {
+    return ( < m header >
+        <
+        div >
+        <
+        div >
+        <
+        Link href = "/" >
+        <
+        a >
+        <
+        Image src = "/images/logo.png"
+        alt = "logo"
+        width = { 50 }
+        height = { 50 }
+        /> < /
+        a > <
+        /Link> <
+        ul >
+        <
+        li >
+        <
+        Link href = "/blog" >
+        <
+        a > Blog < /a> < /
+        Link > <
+        /li> <
+        li >
+        <
+        Link href = "/contact" >
+        <
+        a > Contact < /a> < /
+        Link > <
+        /li> < /
+        ul > <
+        /div> < /
+        div > <
+        /header>
+    );
+};
+
+export default Header;

@@ -1,5 +1,4 @@
 import Layout from "../components/layout";
-import * as style from "../styles/index.module.scss";
 const Contact = () => {
   return (
     <Layout>

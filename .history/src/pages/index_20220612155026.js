@@ -1,10 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import Layout from "../components/layout";
-import * as style from "../styles/index.module.scss"
 const Index = () => {
   return (
-    <Layout>
+    <ayout>
       <div>
         <Image
           src="/images/index-hero.jpg"
@@ -70,7 +69,7 @@ const Index = () => {
           </Link>
         </div>
       </div>
-    </Layout>
+    </ayout>
   );
 };
 
