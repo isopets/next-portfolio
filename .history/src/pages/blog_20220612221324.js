@@ -39,7 +39,6 @@ const Blog = ({blogs, numberPages}) => {
             );
           })}
         </div>
-        <Pagination numberPages={numberPages} />
       </div>
     </Layout>
   );

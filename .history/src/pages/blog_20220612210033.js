@@ -2,11 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-import Pagination from "../components/pagination";
 import * as style from "../styles/index.module.scss";
 import {getAllBlogs} from "../utils/mdQueries";
-import {getAllBlogs, blogsPerPage} from "../utils/mdQueries";
-const Blog = ({blogs, numberPages}) => {
+const Blog = ({blogs}) => {
   return (
     <Layout>
       <Seo title="ブログ" description="これはブログページです" />
@@ -39,7 +37,6 @@ const Blog = ({blogs, numberPages}) => {
             );
           })}
         </div>
-        <Pagination numberPages={numberPages} />
       </div>
     </Layout>
   );
@@ -48,13 +45,29 @@ const Blog = ({blogs, numberPages}) => {
 export default Blog;
 
 export async function getStaticProps() {
-  const {orderedBlogs, numberPages} = await getAllBlogs();
-  const limitedBlogs = orderedBlogs.slice(0, blogsPerPage);
+  
+  const blogs = (context => {
+    const keys = context.keys();
+    const values = keys.map(context);
+    const data = keys.map((key, index) => {
+      let slug = key.replace(/^.*[\\\/]/, "").slice(0, -3);
+      const value = values[index];
+      const document = matter(value.default);
+      return {
+        frontmatter: document.data,
+        slug: slug,
+      };
+    });
+    return data;
+  })(require.context("../data", true, /\.md$/));
+
+  const orderedBlogs = blogs.sort((a, b) => {
+    return b.frontmatter.id - a.frontmatter.id;
+  });
 
   return {
     props: {
-      blogs: limitedBlogs,
-      numberPages: numberPages,
+      blogs: JSON.parse(JSON.stringify(orderedBlogs)),
     },
   };
 }

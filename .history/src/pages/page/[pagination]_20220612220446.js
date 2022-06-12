@@ -1,12 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import Layout from "../components/layout";
-import Seo from "../components/seo";
-import Pagination from "../components/pagination";
-import * as style from "../styles/index.module.scss";
-import {getAllBlogs} from "../utils/mdQueries";
-import {getAllBlogs, blogsPerPage} from "../utils/mdQueries";
-const Blog = ({blogs, numberPages}) => {
+import Layout from "../../components/layout";
+import Seo from "../../components/seo";
+import * as style from "../../styles/index.module.scss";
+import {getAllBlogs} from "../../utils/mdQueries";
+import {getAllBlogs, blogsPerPage} from "../../utils/mdQueries";
+const Blog = ({blogs}) => {
   return (
     <Layout>
       <Seo title="ブログ" description="これはブログページです" />
@@ -39,7 +38,6 @@ const Blog = ({blogs, numberPages}) => {
             );
           })}
         </div>
-        <Pagination numberPages={numberPages} />
       </div>
     </Layout>
   );
@@ -47,9 +45,29 @@ const Blog = ({blogs, numberPages}) => {
 
 export default Blog;
 
-export async function getStaticProps() {
-  const {orderedBlogs, numberPages} = await getAllBlogs();
-  const limitedBlogs = orderedBlogs.slice(0, blogsPerPage);
+export async function getStaticPaths() {
+  const {numberPages} = await getAllBlogs();
+
+  let paths = [];
+  Array.from({length: numberPages})
+    .slice(0, 1)
+    .forEach((_, i) => paths.push(`/blog/page/${i + 2}`));
+
+  return {
+    paths: paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps(context) {
+  // 追加
+  const {orderedBlogs, numberPages} = await getAllBlogs(); // 追加
+
+  const currentPage = context.params.pagination; // 追加
+  const limitedBlogs = orderedBlogs.slice(
+    (currentPage - 1) * blogsPerPage,
+    currentPage * blogsPerPage
+  );
 
   return {
     props: {

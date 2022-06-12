@@ -51,8 +51,8 @@ export async function getStaticProps(context) {
     props: {
       frontmatter: singleDocument.data,
       markdownBody: singleDocument.content,
-      prev,
-      next,
+      prev: prev,
+      next: next,
     },
   };
 }

@@ -4,7 +4,7 @@ import Layout from "../../components/layout";
 import Seo from "../../components/seo";
 import * as style from "../../styles/index.module.scss";
 import {getAllBlogs, getSingleBlog} from "../../utils/mdQueries";
-const SingleBlog = ({frontmatter, markdownBody, prev, next}) => {
+const SingleBlog = ({frontmatter, markdownBody}) => {
   const {title, date, excerpt, image} = frontmatter;
   return (
     <Layout>
@@ -18,7 +18,6 @@ const SingleBlog = ({frontmatter, markdownBody, prev, next}) => {
           <p>{date}</p>
           <ReactMarkdown>{markdownBody}</ReactMarkdown>
         </div>
-        <PrevNext prev={prev} next={next} />
       </div>
     </Layout>
   );
@@ -28,6 +27,7 @@ export default SingleBlog;
 
 export async function getStaticPaths() {
   const {orderedBlogs} = await getAllBlogs();
+
   const paths = orderedBlogs.map(orderedBlog => `/blog/${orderedBlog.slug}`);
 
   return {
@@ -38,21 +38,12 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const {singleDocument} = await getSingleBlog(context);
-
-  const {orderedBlogs} = await getAllBlogs();
-  const prev = orderedBlogs.filter(
-    orderedBlog => orderedBlog.frontmatter.id === singleDocument.data.id - 1
-  );
-  const next = orderedBlogs.filter(
-    orderedBlog => orderedBlog.frontmatter.id === singleDocument.data.id + 1
-  );
+  
 
   return {
     props: {
       frontmatter: singleDocument.data,
       markdownBody: singleDocument.content,
-      prev,
-      next,
     },
   };
 }

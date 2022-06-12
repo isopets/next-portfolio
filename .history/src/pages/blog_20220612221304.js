@@ -6,7 +6,7 @@ import Pagination from "../components/pagination";
 import * as style from "../styles/index.module.scss";
 import {getAllBlogs} from "../utils/mdQueries";
 import {getAllBlogs, blogsPerPage} from "../utils/mdQueries";
-const Blog = ({blogs, numberPages}) => {
+const Blog = ({blogs}) => {
   return (
     <Layout>
       <Seo title="ブログ" description="これはブログページです" />
@@ -39,7 +39,6 @@ const Blog = ({blogs, numberPages}) => {
             );
           })}
         </div>
-        <Pagination numberPages={numberPages} />
       </div>
     </Layout>
   );

@@ -21,11 +21,8 @@ export async function getAllBlogs() {
     return b.frontmatter.id - a.frontmatter.id;
   });
 
-  const numberPages = Math.ceil(orderedBlogs.length / blogsPerPage);
-
   return {
     orderedBlogs: JSON.parse(JSON.stringify(orderedBlogs)),
-    numberPages: numberPages,
   };
 }
 
