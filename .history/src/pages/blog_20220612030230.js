@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link'
 import matter from "gray-matter";
 const Blog = props => {
   console.log(props);
@@ -9,9 +9,6 @@ const Blog = props => {
         <div key={index}>
           <h3>{blog.frontmatter.title}</h3>
           <p>{blog.frontmatter.date}</p>
-          <Link href={`/blog/${blog.slug}`}>
-            <a>Read More</a>
-          </Link>
         </div>
       ))}
     </div>

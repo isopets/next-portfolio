@@ -1,21 +1,13 @@
-import Link from "next/link";
 import matter from "gray-matter";
 const Blog = props => {
   console.log(props);
-  return (
-    <div>
-      <h1>ブログページ</h1>
-      {props.blogs.map((blog, index) => (
-        <div key={index}>
-          <h3>{blog.frontmatter.title}</h3>
-          <p>{blog.frontmatter.date}</p>
-          <Link href={`/blog/${blog.slug}`}>
-            <a>Read More</a>
-          </Link>
+  return
+  <div>  加
+            <h1>ブログページ</h1>
+            {props.blogs.map((blog, index) =>    // 追加
+
+            )}
         </div>
-      ))}
-    </div>
-  );
 };
 export default Blog;
 export async function getStaticProps() {
@@ -35,7 +27,7 @@ export async function getStaticProps() {
   })(require.context("../data", true, /\.md$/));
   return {
     props: {
-      blog: blogs,
+        blog: blogs
     },
   };
 }
