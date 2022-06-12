@@ -64,7 +64,7 @@ const Index = () => {
             </div>
             <div>
               <img src="/images/next.svg" alt="next" />
-              <span> Next.JS / 00 years </span>
+              <span> Next.JS / ? years </span>
             </div>
           </div>
         </div>

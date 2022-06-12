@@ -1,11 +1,9 @@
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import Layout from "../../components/layout";
-import PrevNext from "../../components/prevNext";
 import Seo from "../../components/seo";
-import * as style from "../../styles/singleBlog.module.scss";
+import * as style from "../../styles/index.module.scss";
 import {getAllBlogs, getSingleBlog} from "../../utils/mdQueries";
-
 const SingleBlog = ({frontmatter, markdownBody, prev, next}) => {
   const {title, date, excerpt, image} = frontmatter;
   return (
@@ -54,7 +52,7 @@ export async function getStaticProps(context) {
       frontmatter: singleDocument.data,
       markdownBody: singleDocument.content,
       prev: prev,
-      next: next,
+      next,
     },
   };
 }
