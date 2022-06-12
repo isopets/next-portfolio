@@ -7,7 +7,9 @@ const Contact = () => {
         <div className={style.container}>
           <h1>Contact</h1>
           <p>お気軽にご連絡ください</p>
-          <form action="https://formspree.io/f/xbjwbzok" method="POST">
+          <form action="https://formspree.io/f/xbjwbzok"
+  method="POST"
+>
             <label htmlFor="name">お名前</label>
             <input type="text" name="name" id="name" required />
             <label htmlFor="email">メールアドレス</label>
