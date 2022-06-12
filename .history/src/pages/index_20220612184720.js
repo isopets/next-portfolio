@@ -48,7 +48,7 @@ const Index = () => {
           <div className={style.skillsContainer}>
             <div>
               <img src="/images/javascript.svg" alt="javascript" />
-              <span>JavaScript / ? years</span>
+              <span>JavaScript / 10 years</span>
             </div>
             <div>
               <img src="/images/react.svg" alt="react" />
