@@ -1,10 +1,9 @@
 import Link from "next/link";
-import Image from "next/image";
+import Image from 'next/image'
 const Index = () => {
   return (
     <>
       <div>
-      <Image src="/images/index-hero.jpg" alt="hero" layout="fill" objectFit="cover" quality={90} />
         <div>
           <h1>I'm Abe Hiroki!</h1>
           <h3>JavaScript Developer</h3>
@@ -27,13 +26,7 @@ const Index = () => {
               Lorem Ipsum.
             </p>
           </div>
-          <Image
-            src="/images/profile.jpg"
-            alt="hero"
-            height={1195}
-            width={1000}
-            quality={90}
-          />
+          <Image src="/images/profile.jpg" alt="hero" height={1195} width={1000} quality={90} />
         </div>
         <div>
           <h2>Skills</h2>
