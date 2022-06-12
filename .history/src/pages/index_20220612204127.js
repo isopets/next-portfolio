@@ -6,10 +6,7 @@ import * as style from "../styles/index.module.scss";
 const Index = () => {
   return (
     <Layout>
-      <Seo
-        title="Isogai Yuto"
-        description="Isogai Yutoのポートフォリオサイトです"
-      />
+      <Seo title="Isogai Yuto" description="Isogai Yutoのポートフォリオサイトです" />
       <div className={style.hero}>
         <Image
           src="/images/index-hero.jpg"

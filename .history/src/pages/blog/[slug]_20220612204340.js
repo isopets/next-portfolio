@@ -8,7 +8,6 @@ const SingleBlog = ({frontmatter, markdownBody}) => {
   const {title, date, excerpt, image} = frontmatter;
   return (
     <Layout>
-      <Seo title={title} description={excerpt} />
       <div className={style.hero}>
         <Image src={image} alt="blog-image" height="500" width="1000" />
       </div>

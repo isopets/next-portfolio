@@ -4,7 +4,6 @@ import * as style from "../styles/index.module.scss";
 const Contact = () => {
   return (
     <Layout>
-      <Seo title="コンタクト" description="これはコンタクトページです" />
       <div className={style.wrapper}>
         <div className={style.container}>
           <h1>Contact</h1>
